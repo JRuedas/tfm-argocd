@@ -1,18 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  name: ingress-nginx
 spec:
   project: default
   source:
-    path: applications/
+    path: charts/ingress-nginx
     repoURL: https://github.com/JRuedas/tfm-argocd-apps.git
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: main-app
+    namespace: ingress-nginx
   syncPolicy:
     automated:
       prune: true
