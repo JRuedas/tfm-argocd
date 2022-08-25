@@ -1,4 +1,5 @@
 apiVersion: v2
 name: root_app
 version: 0.0.1
+appVersion: 0.0.1
 description: Application that will create other applications in ArgoCD using the App of Apps pattern.

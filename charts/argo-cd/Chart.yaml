@@ -1,6 +1,7 @@
 apiVersion: v2
 name: argo-cd
 version: 0.0.1
+appVersion: 0.0.1
 description: Wrapper of the ArgoCD official Helm chart
 dependencies:
   - name: argo-cd
