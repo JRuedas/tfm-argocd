@@ -12,9 +12,6 @@ argo-cd:
     volumes:
       - name: custom-tools
         emptyDir: {}
-    envFrom:
-    - secretRef:
-        name: argocd-vault-plugin-credentials
     volumeMounts:
       - name: custom-tools
         mountPath: /usr/local/bin/argocd-vault-plugin
