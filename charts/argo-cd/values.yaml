@@ -13,7 +13,8 @@ argo-cd:
       - name: custom-tools
         emptyDir: {}
     env:
-      - AVP_TYPE: azurekeyvault
+      - name: AVP_TYPE
+        value: azurekeyvault
     volumeMounts:
       - name: custom-tools
         mountPath: /usr/local/bin/argocd-vault-plugin
