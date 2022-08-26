@@ -1,0 +1,9 @@
+apiVersion: v2
+name: external-dns
+version: 0.0.1
+appVersion: 0.0.1
+description: Wrapper of the External DNS official Helm chart
+dependencies:
+  - name: external-dns
+    version: 1.11.0
+    repository: https://kubernetes-sigs.github.io/external-dns
