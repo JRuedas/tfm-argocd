@@ -2,7 +2,3 @@ argo-cd:
   server:
     extraArgs:
       - --insecure
-  repoServer:
-    envFrom:
-      - secretRef:
-          name: certm-issuer-config
