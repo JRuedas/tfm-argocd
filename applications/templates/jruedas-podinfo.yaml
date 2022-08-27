@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jruedas-podinfo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: charts/podinfo
+    repoURL: https://github.com/JRuedas/podinfo.git
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: ingress.enabled
+          value: "true"
+        - name: ingress.hosts[0].host
+          value: podinfo.jruedas.dev
+        - name: ingress.hosts[0].paths[0].pathType
+          value: Prefix
+        - name: ingress.hosts[0].paths[0].path
+          value: /
+        - name: ingress.tls[0].secretName
+          value: jruedas-podinfo-tls
+        - name: ingress.tls[0].hosts[0]
+          value: podinfo.jruedas.dev
+        - name: ingress.className
+          value: nginx
+      values: |-
+        ingress:
+          annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-prod    
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: jruedas-podinfo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=background
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s      
