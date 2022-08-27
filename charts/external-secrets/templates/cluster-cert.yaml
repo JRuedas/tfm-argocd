@@ -5,7 +5,7 @@ metadata:
 spec:
   namespaceSelector:
     matchLabels: 
-      kubernetes.io/metadata.name: cert-manager
+      kubernetes.io/metadata.name: argocd
 
   refreshTime: "1m"
 
