@@ -5,4 +5,4 @@ argo-cd:
   repoServer:
     envFrom:
       - secretRef:
-          name: cert-config
+          name: certm-issuer-config
