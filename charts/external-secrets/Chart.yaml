@@ -1,0 +1,9 @@
+apiVersion: v2
+name: external-secrets
+version: 0.0.1
+appVersion: 0.0.1
+description: Wrapper of the External Secrets official Helm chart
+dependencies:
+  - name: external-secrets
+    version: 0.5.9
+    repository: https://charts.external-secrets.io

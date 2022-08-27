@@ -1,0 +1,23 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterExternalSecret
+metadata:
+  name: jruedas-az-secret
+spec:
+  namespaceSelector:
+    matchLabels: 
+      kubernetes.io/metadata.name: external-dns
+
+  refreshTime: "1m"
+
+  externalSecretSpec:
+    refreshInterval: 0h
+    secretStoreRef:
+      kind: ClusterSecretStore
+      name: jruedas-az-secret-store
+    target:
+      name: azure-config-file
+      creationPolicy: Owner
+    data:
+    - secretKey: azure.json
+      remoteRef:
+        key: external-dns-secret
