@@ -12,6 +12,12 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
+  ignoreDifferences:
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: cert-manager-webhook
+    jqPathExpressions:
+      - .webhooks[].namespaceSelector.matchExpressions[] | select(.key == "control-plane")
   syncPolicy:
     automated:
       prune: true
