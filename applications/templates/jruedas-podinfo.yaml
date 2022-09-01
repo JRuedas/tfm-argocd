@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    path: charts/podinfo
-    repoURL: https://github.com/JRuedas/podinfo.git
+    path: charts/jruedas-podinfo
+    repoURL: https://github.com/JRuedas/tfm-argocd-apps.git
     targetRevision: HEAD
     helm:
       parameters:
