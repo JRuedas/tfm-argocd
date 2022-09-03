@@ -6,7 +6,7 @@ external-dns:
   extraArgs:
     - --azure-resource-group=tfm-jruedas-rg
   extraVolumes:
-    - name: "azure-config-file"
+    - name: azure-config-file
       secret:
         secretName: azure-config-file
   extraVolumeMounts: 
