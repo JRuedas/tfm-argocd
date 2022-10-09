@@ -2,7 +2,7 @@
 
 image:
   repository: jruedas92/podinfo
-  tag: 1.0.15
+  tag: 1.0.16
   pullPolicy: IfNotPresent
 
 ingress:
